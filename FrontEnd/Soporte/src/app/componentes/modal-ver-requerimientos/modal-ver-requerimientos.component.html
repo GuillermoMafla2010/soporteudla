@@ -1,0 +1,13 @@
+<mat-card *ngIf="requerimiento">
+  <mat-card-content>
+    <mat-card-title class="text-center">Detalle del Requerimiento</mat-card-title><hr/>
+      <mat-list role="list">
+          <mat-list-item role="listitem">Numero de Ticket: {{requerimiento.id}}</mat-list-item>
+          <mat-list-item role="listitem">Solicitante : {{requerimiento.clientes.nombre}}</mat-list-item>
+          <mat-list-item role="listitem">Detalle : {{requerimiento.descripcion}}</mat-list-item>
+          <mat-list-item role="listitem">Tecnico : {{requerimiento.usuarios.nombre}}</mat-list-item>
+          <mat-list-item role="listitem">Estado : {{requerimiento.estados.nombre_estado}}</mat-list-item>
+        </mat-list>
+  </mat-card-content>
+</mat-card>
+

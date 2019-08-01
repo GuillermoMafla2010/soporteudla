@@ -1,0 +1,112 @@
+
+
+
+<!-- Modal -->
+<div>
+  <div *ngIf="loading">
+      <mat-spinner></mat-spinner>
+  </div>
+<div *ngIf="usuarioeditar">
+
+<div class="text-center"><h1 mat-dialog-title>Modificar Usuario</h1></div>
+<form (ngSubmit)="actualizar()">
+<div class="container" mat-dialog-content>
+  Modificar Usuario : <span >{{usuarioeditar.nombre}}</span>
+
+  <div class="row">
+      <div class="col-md-6">
+
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Nombre" value={{usuarioeditar.nombre}} [(ngModel)]="usuarioeditar.nombre" name="nombre">
+              </mat-form-field>
+
+
+
+      </div>
+
+      <div class="col-md-6">
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Correo" value={{usuarioeditar.email}} [(ngModel)]="usuarioeditar.email" name="email">
+          </mat-form-field>
+
+
+
+        </div>
+
+
+        <div class="col-md-6">
+
+            <mat-form-field class="example-full-width">
+                <mat-label> Sede </mat-label>
+                <mat-select [compareWith]="compararsedes" [(ngModel)]="usuarioeditar.sede" name="sede" >
+
+                  <mat-option *ngFor="let sede of sedes" [(value)]="sede">
+                    {{sede.nombre_sede}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+
+             <!--   <select [compareWith]="compararsedes" [(ngModel)]="usuarioeditar.sede" name="sede">
+                  <option *ngFor="let sede of sedes" [ngValue]="sede">{sede.nombre_sede}}</option>
+
+                </select>
+
+                -->
+
+          </div>
+
+
+
+        <div class="col-md-6">
+
+           <!-- <mat-form-field class="example-full-width">
+                <mat-label>{usuarioeditar.roles[0].nombre_rol}}</mat-label>
+                <mat-select [(ngModel)]="usuarioeditar.roles_id" name="sede_id" >
+
+                  <mat-option *ngFor="let food of roles" [value]="food.id">
+                    {food.nombre_rol}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            -->
+
+           <!-- <select [compareWith]="compararroles" [(ngModel)]="usuarioeditar.roles[0]" name="roles">
+                <option *ngFor="let rol of roles" [ngValue]="rol">{{rol.nombre_rol}}</option>
+
+              </select>
+            -->
+
+            <mat-form-field class="example-full-width">
+                <mat-label> Roles </mat-label>
+                <mat-select [compareWith]="compararroles" [(ngModel)]="usuarioeditar.roles[0]" name="roles" >
+
+                  <mat-option *ngFor="let rol of roles" [(value)]="rol">
+                    {{rol.nombre_rol}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+          </div>
+
+
+
+  </div>
+
+
+
+
+</div>
+
+<mat-dialog-actions align="end">
+    <button  mat-button mat-dialog-close>Cancelar</button>
+    <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+    <button mat-button type="submit"    cdkFocusInitial>Guardar </button>
+    <mat-progress-spinner *ngIf="loadingupdate" mode="indeterminate" [diameter]="20"></mat-progress-spinner>
+</mat-dialog-actions>
+</form>
+</div>
+</div>

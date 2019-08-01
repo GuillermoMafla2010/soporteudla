@@ -1,0 +1,39 @@
+<div class="container">
+  <form id="contact" (ngSubmit)="nuevousuario()">
+      <div mb-2>
+    <h3 > Crea un Nuevo Usuario</h3>
+  </div>
+    <fieldset>
+      <input placeholder="Nombre" name="nombre" type="text" tabindex="1" required autofocus [(ngModel)]="usuario.nombre">
+    </fieldset>
+    <fieldset>
+      <input placeholder="Correo"  name="email" type="email" tabindex="2" required [(ngModel)]="usuario.email">
+    </fieldset>
+    <fieldset>
+      <input placeholder="Contraseña"  name="password" type="password" tabindex="3" required [(ngModel)]="usuario.password">
+    </fieldset>
+
+    <fieldset>
+
+      <select tabindex="4" [(ngModel)]="usuario.roles_id" name="roles" >
+          <option [ngValue]="undefined"> Selecciona Rol</option>
+          <option  *ngFor="let item of roles" [ngValue]="item.id">   {{item.nombre_rol}} </option>
+      </select>
+    </fieldset>
+
+
+    <fieldset>
+
+      <select tabindex="4" [(ngModel)]="usuario.sede_id" name="sede" >
+          <option [ngValue]="undefined"> Selecciona Sede</option>
+          <option  *ngFor="let item of sedes" [ngValue]="item.id">   {{item.nombre_sede}} </option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+
+
+</div>

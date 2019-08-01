@@ -1,0 +1,21 @@
+<div>
+    <div *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+  <div *ngIf="incidencia">
+<mat-card>
+    <mat-card-title class="text-center">Detalles de la Incidencia</mat-card-title><hr/>
+    <mat-card-content>
+      <mat-list role="list">
+          <mat-list-item role="listitem">Numero de Ticket: {{incidencia.id}}</mat-list-item>
+          <mat-list-item role="listitem">Solicitante : {{incidencia.clientes.nombre}}</mat-list-item>
+          <mat-list-item role="listitem">Detalle : {{incidencia.descripcion}}</mat-list-item>
+          <mat-list-item role="listitem">Tecnico : {{incidencia.usuarios.nombre}}</mat-list-item>
+          <mat-list-item role="listitem">Estado : {{incidencia.estados.nombre_estado}}</mat-list-item>
+          <mat-list-item role="listitem" *ngIf="incidencia.solucion!==''">Solucion : {{incidencia.solucion}}</mat-list-item>
+        </mat-list>
+      </mat-card-content>
+</mat-card>
+
+  </div>
+  </div>

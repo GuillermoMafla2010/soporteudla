@@ -1,0 +1,68 @@
+.abrir-modal{
+  background-color: rgba(0,0,0,0.7);
+  position:fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 10000000000;
+}
+
+
+.animacion{
+
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+
+
+}
+
+
+.fadeIn{
+  animation-name: fadeIn;
+  -webkit-animation-name:fadeIn
+}
+@media (min-width: 768px) {
+  .abrir-modal {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .abrir-modal {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .abrir-modal {
+     width: 1170px;
+  }
+}
+
+
+
+.animacion{
+
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+
+
+}
+
+
+.fadeIn{
+  animation-name: fadeIn;
+  -webkit-animation-name:fadeIn
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.upload{
+  width:10%;
+  height: 10%;
+}

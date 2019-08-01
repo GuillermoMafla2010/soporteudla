@@ -1,0 +1,75 @@
+<mat-card class="container">
+  <mat-card-title>
+    Incidencias
+  </mat-card-title>
+
+  <div class="container">
+    <form (ngSubmit)="creaIncidencia()">
+    <div class="row">
+        <div class="col-md-4">
+            <mat-form-field>
+                <mat-label>Sede</mat-label>
+                <mat-select  [ngModel]="sedes" (ngModelChange)="onChange($event)" [ngModelOptions]="{standalone: true}" name="sedes">
+                  <mat-option *ngFor="let item of sedes" [value]="item.id">
+                    {{item.nombre_sede}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+            <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <mat-select name="cliente_id" [(ngModel)]="incidencia.cliente_id" >
+                  <mat-option *ngFor="let item of clientes" [value]="item.id">
+                    {{item.nombre}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+
+        <div class="col-md-4">
+            <mat-form-field>
+                <mat-label>Tecnico</mat-label>
+                <mat-select name="user_id" [(ngModel)]="incidencia.user_id">
+                  <mat-option *ngFor="let item of tecnicos" [value]="item.id">
+                    {{item.nombre}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+    </div>
+  <div class="row">
+        <div class="col-md-8">
+            <mat-form-field class="example-full-width">
+                <textarea matInput cdkTextareaAutosize
+                name="descripcion"
+                [(ngModel)]="incidencia.descripcion"
+                cdkAutosizeMaxRows="5"
+                placeholder="Descripcion"></textarea>
+              </mat-form-field>
+        </div>
+
+
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-label>Estado</mat-label>
+            <mat-select class="example-full-width" name="estado_id" [(ngModel)]="incidencia.estado_id">
+              <mat-option class="example-full-width" *ngFor="let item of estados" [value]="item.id">
+                {{item.nombre_estado}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+    </div>
+
+        <div>
+          <button type="submit" class=" ml-1 mt-2 btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+
+
+</mat-card>

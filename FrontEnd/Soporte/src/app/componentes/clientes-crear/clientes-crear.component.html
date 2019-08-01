@@ -1,0 +1,21 @@
+<div class="container">
+    <mat-card>
+    <form class="example-form" (ngSubmit)="guardaCliente()">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Nombre Cliente" value="Sushi" name="nombre"  [(ngModel)]="clientes.nombre">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Sede</mat-label>
+            <mat-select name="sede" [(ngModel)]="clientes.sede_id">
+              <mat-option *ngFor="let item of sedes" [value]="item.id">
+                {{item.nombre_sede}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field><br/>
+
+        <button class="btn btn-primary mt-2">Guardar</button>
+      </form>
+    </mat-card>
+
+</div>

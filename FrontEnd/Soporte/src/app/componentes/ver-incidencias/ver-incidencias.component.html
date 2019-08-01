@@ -1,0 +1,47 @@
+<table mat-table [dataSource]="incidencias" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> Incidencia </th>
+    <td mat-cell *matCellDef="let incidencia"> {{incidencia.descripcion | truncate:30}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Solicitado por </th>
+    <td mat-cell *matCellDef="let incidencia"> {{incidencia.clientes.nombre}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef> Tecnico Responsable </th>
+    <td mat-cell *matCellDef="let incidencia"> {{incidencia.usuarios.nombre}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef> Estado </th>
+    <td mat-cell *matCellDef="let incidencia"> {{incidencia.estados.nombre_estado}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="opciones">
+      <th mat-header-cell *matHeaderCellDef> Opciones </th>
+      <td mat-cell *matCellDef="let  element" >
+        <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary" mat-button (click)="abrirModal(element.id,element.nombre)" >
+            <mat-icon aria-label="Edit">visibility</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="primary" mat-button (click)="editarModal(element.id)" >
+            <mat-icon aria-label="Delete">edit</mat-icon>
+          </button>
+        <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn" mat-button (click)="openDialog()" >
+            <mat-icon aria-label="Delete">delete</mat-icon>
+          </button>
+        </td>
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
